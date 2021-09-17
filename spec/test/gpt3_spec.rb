@@ -9,4 +9,8 @@ RSpec.describe Test::Gpt3 do
     expect { raise Test::Gpt3::Error, 'some message' }
       .to raise_error('some message')
   end
+
+  it 'prints access token' do
+    puts ENV['OPENAI_SECRET_KEY']
+  end
 end
