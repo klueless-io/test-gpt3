@@ -3,7 +3,7 @@
 require 'pry'
 require 'bundler/setup'
 require 'test/gpt3'
-# require 'k_usecases'
+require "ruby/openai"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
