@@ -2,6 +2,12 @@
 
 > Test Gpt3 provides a test harness for exploring the OPENAI gpt3 gem
 
+## Samples
+
+- https://cobusgreyling.medium.com/observations-from-beta-testing-openai-codex-a111359dbd8b
+- https://www.pragnakalp.com/experimenting-with-openai-codex/
+- https://www.reddit.com/r/GPT3/comments/kkp2py/17_examples_of_completions_from_the_new_gpt3/
+
 ## Installation
 
 Add this line to your application's Gemfile:

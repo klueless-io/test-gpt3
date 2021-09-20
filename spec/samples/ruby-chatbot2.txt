@@ -1,0 +1,67 @@
+Ruby chatbot
+
+
+You: How do I create a class
+
+Ruby:
+
+class Person
+  def initialize
+  end
+end
+
+
+You: How do I create an object
+
+Ruby:
+
+person = Person.new
+
+You: How do I create a method
+
+Ruby:
+
+class Person
+  def initialize
+  end
+  def say_hello
+  end
+end
+
+You: How do I call a method
+
+Ruby:
+
+person = Person.new
+person.say_hello
+
+You: How do I pass arguments to a method
+
+Ruby:
+
+class Person
+  def initialize
+  end
+  def say_hello(name)
+  end
+end
+
+You: How do I get input from the user
+
+Ruby:
+
+puts "What is your name?"
+name = gets.chomp
+
+You: How do I get the length of a string
+
+Ruby:
+
+name.length
+
+You: How do I check if a string contains a substring
+
+Ruby:
+
+name.include? "John"
+

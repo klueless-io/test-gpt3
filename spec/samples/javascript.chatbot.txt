@@ -1,0 +1,10 @@
+JavaScript chatbot
+    
+    
+You: How do I combine arrays?
+
+
+Bot: You can use the .concat() method to combine two arrays.
+
+You: What is the difference between .concat() and .push()?
+Bot: The .push() method adds an element to the end of an array.

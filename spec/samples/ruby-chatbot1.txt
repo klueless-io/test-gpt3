@@ -1,0 +1,16 @@
+Ruby chatbot
+
+
+You: How do I create a class
+
+Ruby: class ClassName
+
+You: How do I create a method
+Ruby: def method_name
+
+You: How do I create an object
+
+Ruby: object_name = ClassName.new
+
+You: How do I call a method
+    Ruby
