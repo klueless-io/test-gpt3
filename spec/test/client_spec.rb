@@ -1,17 +1,32 @@
 # frozen_string_literal: true
 
+def load_file(path, name)
+  File.read(File.join(path, name))
+end
+
+def write_file(filename, content)
+  File.write(filename, content)
+  # File.open(filename, "w") do |file|
+  #   file.write(content)
+  # end
+end
+
 RSpec.describe "Client" do
   let(:client) { OpenAI::Client.new(access_token: access_token) }
   let(:access_token) { ENV['OPENAI_SECRET_KEY'] }
   let(:engine) { 'davinci-codex' }
-  let(:max_tokens) { 510 }
+  let(:max_tokens) { 50 }
   let(:temperature) { 0 }
   let(:top_p) { 1 }
   let(:frequency_penalty) { 0 }
   let(:presence_penalty) { 0 }
-  let(:prompt) { prompt5 }
+  let(:prompt) { question }
+  let(:path) { 'spec/samples/inputs' }
 
-# max_tokens=60,
+  let(:output_path) { 'spec/samples/outputs' }
+  let(:output) { File.join(output_path, output_name) }
+
+  # max_tokens=60,
 # top_p=1,
 # frequency_penalty=0.5,
 # presence_penalty=0,
@@ -82,7 +97,7 @@ now put this code inside a method and class
 
       table :person do
 
-        columns [:first_name, last_name, :date_of_birth]
+        columns [:first_name, :last_name, :date_of_birth]
 
         row "David", "Cruwys", 17/01/1972
         row "Sean", "Wallace", 29/05/1967
@@ -91,13 +106,52 @@ now put this code inside a method and class
       end
     end
 
-    You: Create a configuration class for the products table with the fields, Product Name, Quantity, Stock on Hand and five rows of sample data
+    You: Create a configuration class for the products table for our restaurant with the fields, Product Name, Quantity, Ingredients and five rows of sample data
     
     TEXT
-
   }
 
   # let(:prompt) { 'print hello world in ruby\n\nputs \"Hello World\"\n\nnow put this code inside a methond and class\n' }
+
+  let(:prompt6) {
+    <<~TEXT
+
+    YOU: Create an empty table called address with the following (fields city, country, state, state_name, street1, street2, zip) and set the values to nil
+
+    RUBY:
+
+    #{example1}
+
+    YOU: Create an empty table called company with the following (name, stock_code, location, employee_count) and set the values to nil
+    TEXT
+  }
+
+  context 'read and write' do
+    let(:example1) { load_file(path, 'address-a-question1.rb') }
+    let(:output_name) { 'make_empty_company.rb' }
+        
+    it 'reader' do
+      puts prompt6
+      
+    end
+
+    fit 'writer' do
+      write_file(output, 'sample out')
+    end
+  end
+
+  let(:question) {
+    <<~TEXT
+    Ruby bot:
+    YOU: How to read a file in ruby
+
+    RUBY:
+
+    content = File.read("filename.txt")
+
+    YOU: How do you write a text file in ruby
+    TEXT
+  }
 
   it 'should ask a question using davinci' do
     response = client.completions(engine: engine,

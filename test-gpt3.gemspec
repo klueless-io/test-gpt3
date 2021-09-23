@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'lib/test/gpt3/version'
+require_relative 'lib/gpt3/version'
 
 Gem::Specification.new do |spec|
   spec.required_ruby_version  = '>= 2.5'
   spec.name                   = 'test-gpt3'
-  spec.version                = Test::Gpt3::VERSION
+  spec.version                = Gpt3::VERSION
   spec.authors                = ['David Cruwys']
   spec.email                  = ['david@ideasmen.com.au']
 

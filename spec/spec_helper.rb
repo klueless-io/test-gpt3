@@ -2,7 +2,7 @@
 
 require 'pry'
 require 'bundler/setup'
-require 'test/gpt3'
+require 'gpt3'
 require "ruby/openai"
 
 RSpec.configure do |config|
